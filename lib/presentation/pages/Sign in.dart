@@ -1,3 +1,4 @@
+import 'package:a_matual/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:a_matual/domain/functions/functions.dart';
@@ -28,7 +29,9 @@ class _Sign_in_pageState extends State<Sign_in_page> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              MyText(title: 'Пропустить', size: 12, color:  MyColors.subtextdartColor,),
+              GestureDetector(
+                child: MyText(title: 'Пропустить', size: 12, color:  MyColors.subtextdartColor,),
+              ),
             ],
           ),
           ),
