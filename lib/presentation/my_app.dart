@@ -1,4 +1,4 @@
-import 'package:a_matual/presentation/pages/Sign%20in.dart';
+import 'package:a_matual/presentation/pages/Board_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Sign_in_page(),
+      home: const BoardPage(),
       debugShowCheckedModeBanner: false,
     );
   }

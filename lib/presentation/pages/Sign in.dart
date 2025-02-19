@@ -25,11 +25,12 @@ class _Sign_in_pageState extends State<Sign_in_page> {
       body: Align
       (child: Column(
         children: [
-          Padding(padding: EdgeInsets.only(top: 48, right: 20),
+          Padding(padding: EdgeInsets.only(top: 68, right: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
+                onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));},
                 child: MyText(title: 'Пропустить', size: 12, color:  MyColors.subtextdartColor,),
               ),
             ],
