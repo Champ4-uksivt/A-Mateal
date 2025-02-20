@@ -1,4 +1,5 @@
 import 'package:a_matual/presentation/colors/color.dart';
+import 'package:a_matual/presentation/pages/verification_page.dart';
 import 'package:a_matual/presentation/widget/my_button.dart';
 import 'package:a_matual/presentation/widget/my_text.dart';
 import 'package:a_matual/presentation/widget/text_input.dart';
@@ -45,7 +46,7 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                   height: 40,
                 ),
                 MyButton(onTap: () {
-                  
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationPage()));
                 }, color: MyColors.accentColor, title: "Отправить", colortitle: MyColors.backgroundColor),
               ],
             ),

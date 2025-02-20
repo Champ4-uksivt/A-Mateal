@@ -142,10 +142,10 @@ class _CheckoutEmptyPageState extends State<CheckoutEmptyPage> {
                           children: [
                             Column(
                               children: [
-                                    Text('Адрес', style: GoogleFonts.roboto(fontSize: 14, color: MyColors.textColor,), textAlign: TextAlign.left,),
+                                Text('Адрес', style: GoogleFonts.roboto(fontSize: 14, color: MyColors.textColor,)),
                                 SizedBox(height: 12,),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Text('1082 Аэропорт, Нигерии', style: GoogleFonts.roboto(fontSize: 12, color: MyColors.hintColor,))
                                   ],
