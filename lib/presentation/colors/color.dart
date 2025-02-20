@@ -8,4 +8,6 @@ class MyColors{
   static const Color accentColor = Color(0xff48b2e7);
   static const Color blockColor = Color(0xffffffff);
   static const Color disableColor = Color(0xff2b6b8b);
+  static const Color iconColor = Color(0xffd9d9d9);
+  static const Color redColor = Color(0xfff87265);
 }
