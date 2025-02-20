@@ -1,5 +1,9 @@
+import 'package:a_matual/presentation/pages/Board_page.dart';
+import 'package:a_matual/presentation/pages/forgotpassword.dart';
 import 'package:a_matual/presentation/pages/home.dart';
+import 'package:a_matual/presentation/pages/registor_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:a_matual/domain/functions/functions.dart';
 import 'package:a_matual/presentation/colors/color.dart';
@@ -22,21 +26,29 @@ class _Sign_in_pageState extends State<Sign_in_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+      appBar: AppBar(
+        leading: Padding(padding: EdgeInsets.only(left: 20),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Sign_in_page()));
+            },
+            child: SvgPicture.asset('assets/back_icon.svg',))
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: GestureDetector(
+                  onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));},
+                  child: MyText(title: 'Пропустить', size: 12, color:  MyColors.subtextdartColor,),
+                ),
+          ),
+        ]
+      ),
       body: Align
       (child: Column(
         children: [
-          Padding(padding: EdgeInsets.only(top: 68, right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              GestureDetector(
-                onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));},
-                child: MyText(title: 'Пропустить', size: 12, color:  MyColors.subtextdartColor,),
-              ),
-            ],
-          ),
-          ),
-          Padding(padding: EdgeInsets.only(top: 126, left: 18, right: 22),
+          Padding(padding: EdgeInsets.only(top: 11, left: 18, right: 22),
             child: Column(
               children: [
                 MyText(title: 'Привет!', size: 32, color:  MyColors.textColor,),
@@ -63,7 +75,7 @@ class _Sign_in_pageState extends State<Sign_in_page> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    MyText(title: 'Email', size: 16, color: MyColors.textColor),
+                    MyText(title: 'Пароль', size: 16, color: MyColors.textColor),
                   ],
                 ),
                 SizedBox(
@@ -76,13 +88,13 @@ class _Sign_in_pageState extends State<Sign_in_page> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    MyText(title: 'Восстановить', size: 12, color: MyColors.subtextdartColor),
+                    GestureDetector(onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgotpasswordPage()));}, child: MyText(title: 'Восстановить', size: 12, color: MyColors.subtextdartColor)),
                   ],
                 ),
                 SizedBox(
                   height: 24,
                 ),
-              MyButton(onTap: Functions.check(emailcontroller.text, passwordcontroller.text, context), color: MyColors.accentColor, title: 'Войти', colortitle: MyColors.backgroundColor),
+              MyButton(onTap: () {Functions.check(emailcontroller.text, passwordcontroller.text, context);}, color: MyColors.accentColor, title: 'Войти', colortitle: MyColors.backgroundColor),
               ],
             ),
           ),
@@ -94,7 +106,10 @@ class _Sign_in_pageState extends State<Sign_in_page> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MyText(title: "Вы впервые? ", size: 16, color: MyColors.hintColor),
-                      MyText(title: "Создать пользователя", size: 16, color: MyColors.textColor),
+                      GestureDetector(onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => RegistorPage(isSelectd: false,)));  
+                      }, 
+                      child: MyText(title: "Создать пользователя", size: 16, color: MyColors.textColor)),
                     ],
                   ),
                 ),

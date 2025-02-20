@@ -8,38 +8,27 @@ import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class Functions {
-  static Function()? check(String email, String password, BuildContext context) {
-  if(email.isEmpty || password.isEmpty)
-    {
-      Form(child: 
-        Container(
-          child: Column(
-            children: [
-              MyText(title: 'Ошибка', size: 16, color: Colors.black)
-            ],
-          ),
-        ),
-      );
-    }
+  static Future<void> check(String email, String password, BuildContext context) async {
+
   }
-  static Future<SneakersModel> getSneaker (String id) async{
+  static Future<SneakersModel> getSneaker (String id) async{ //вывод данных выбранного кроссовка
     final supabase = GetIt.I.get<SupabaseClient>();
     final sneakerlist = await supabase.from('sneakers').select().eq('id', id);
     final sneaker = (sneakerlist as List).map((item) => SneakersModel.fromMap(item)).first;
     return sneaker;
   }
-  static Future<CategoryModel> getCategory (int id) async{
+  static Future<CategoryModel> getCategory (int id) async{ //вывод категорий выбранного кроссовка
     final supabase = GetIt.I.get<SupabaseClient>();
     final categorylist = await supabase.from('categories').select().eq('id', id);
     final category = (categorylist as List).map((item) => CategoryModel.fromMap(item)).first;
     return category;
   }
-  static Future<Uint8List> getImage (String id) async{
+  static Future<Uint8List> getImage (String id) async{ //вывод изображения выбранного кроссовка
     final supabase = GetIt.I.get<SupabaseClient>();
     final image = await supabase.storage.from('assets').download('$id.png');
     return image;
   }
-  static Future<List<Map<dynamic, String>>> getImages () async{
+  static Future<List<Map<dynamic, String>>> getImages () async{ //вывод списка изображений с id кроссовка
     final supabase = GetIt.I.get<SupabaseClient>();
     final sneakerslist = await supabase.from('sneakers').select();
     List<Map<dynamic, String>> list = [];

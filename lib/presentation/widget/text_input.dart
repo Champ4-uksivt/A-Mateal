@@ -20,26 +20,28 @@ class _TextInputState extends State<TextInput> {
   bool isReviewed = false;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: widget.controller,
-      obscureText: widget.isPassword ? isReviewed : false,
-      decoration: InputDecoration(
-        suffixIcon: widget.isPassword? IconButton(onPressed: () {
-          setState(() {
-            isReviewed = !isReviewed;
-          });
-        }, icon: SvgPicture.asset('assets/Eye.svg'),) : null,
-        filled: false,
-        hintText: widget.hint,
-        hintStyle: TextStyle(color: MyColors.hintColor, fontSize: 14),
-        fillColor: MyColors.backgroundColor,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide.none
-        )
+    return Container(
+      color: MyColors.backgroundColor,
+      child: TextField(
+        controller: widget.controller,
+        obscureText: widget.isPassword ? isReviewed : false,
+        decoration: InputDecoration(
+          suffixIcon: widget.isPassword? IconButton(onPressed: () {
+            setState(() {
+              isReviewed = !isReviewed;
+            });
+          }, icon: SvgPicture.asset('assets/Eye.svg'),) : null,
+          filled: false,
+          hintText: widget.hint,
+          hintStyle: TextStyle(color: MyColors.hintColor, fontSize: 14),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide.none
+          )
+          
+        ),
         
       ),
-      
     );
   }
 }

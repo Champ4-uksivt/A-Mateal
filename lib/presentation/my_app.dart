@@ -1,6 +1,5 @@
-import 'package:a_matual/presentation/pages/Board_page.dart';
-import 'package:a_matual/presentation/pages/details_page.dart';
-import 'package:a_matual/presentation/pages/favorite.dart';
+import 'package:a_matual/presentation/pages/Sign%20in.dart';
+import 'package:a_matual/presentation/pages/checkout_empty_page.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -15,7 +14,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       //home: const DetailsPage(id: '01934e25-ee0e-7c87-8271-0a7f5ddcf04c',),
-      home: const FavoritePage(),
+      home: const CheckoutEmptyPage(),
       debugShowCheckedModeBanner: false,
     );
   }
