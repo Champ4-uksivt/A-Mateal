@@ -31,7 +31,7 @@ class _Sign_in_pageState extends State<Sign_in_page> {
         leading: Padding(padding: EdgeInsets.only(left: 20),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Sign_in_page()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BoardPage()));
             },
             child: SvgPicture.asset('assets/back_icon.svg',))
         ),

@@ -253,9 +253,9 @@ class _DetailorderPageState extends State<DetailorderPage> {
                           children: [
                             Row(
                               children: [
-                                SvgPicture.asset('assets/cart.svg'),
-                        SizedBox(width: 12,),
-                        SizedBox(
+                                Image.asset('assets/cart.png', height: 40, width: 40,),
+                                SizedBox(width: 12,),
+                                SizedBox(
                           width: 212,
                           child: Column(
                             children: [

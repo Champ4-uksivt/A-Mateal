@@ -41,7 +41,11 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         ],
         leading: Padding(padding: EdgeInsets.only(left: 20),
-          child: SvgPicture.asset('assets/back_icon.svg')
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: SvgPicture.asset('assets/back_icon.svg'))
         ),
         title: MyText(title: 'Sneaker Shop', size: 16, color: MyColors.textColor),
       ),
