@@ -19,7 +19,7 @@ class _BasketPageState extends State<BasketPage> {
         leading: Padding(padding: EdgeInsets.only(left: 20),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(id: '01934e25-ee0e-7c87-8271-0a7f5ddcf04c')));
+              Navigator.pop(context);
             },
             child: SvgPicture.asset('assets/back_icon.svg'))
         ),

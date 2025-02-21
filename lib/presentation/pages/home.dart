@@ -1,5 +1,10 @@
 import 'package:a_matual/presentation/colors/color.dart';
+import 'package:a_matual/presentation/pages/favorite.dart';
+import 'package:a_matual/presentation/pages/mainprofile_page.dart';
+import 'package:a_matual/presentation/pages/notification_page.dart';
 import 'package:a_matual/presentation/pages/popular_page.dart';
+import 'package:a_matual/presentation/pages/profile_page.dart';
+import 'package:a_matual/presentation/pages/zoomdriver.dart';
 import 'package:a_matual/presentation/widget/my_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,7 +27,11 @@ class _HomePageState extends State<HomePage> {
         ),
         ],
         leading: Padding(padding: EdgeInsets.only(left: 20),
-          child: SvgPicture.asset('assets/Hamburger.svg', width: 44, height: 44,),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MainprofilePage()));
+            },
+            child: SvgPicture.asset('assets/Hamburger.svg', width: 44, height: 44,)),
         ),
         title: Stack(
         children: [
@@ -133,26 +142,58 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: Stack(
         children: [
           Image.asset('assets/nav.png'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: MyColors.accentColor
+          Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: 56,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: MyColors.accentColor
+                  ),
+                  child: Padding (padding: EdgeInsets.all(16), child: SvgPicture.asset('assets/basket_nav.svg')),
                 ),
-                child: Padding (padding: EdgeInsets.all(16), child: SvgPicture.asset('assets/basket_nav.svg')),
-              ),
-            ],
-
+              ],
+            
+            ),
           ),
-          Padding(padding: EdgeInsets.only(top: 52, right: 31, left: 31),
+          Padding(padding: EdgeInsets.only(top: 72, right: 31, left: 31),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(width: 41,)
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+
+                      },
+                      child: SvgPicture.asset('assets/name_nav.svg', color: MyColors.accentColor,)),
+                    SizedBox(width: 41,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> FavoritePage()));
+                      },
+                      child: SvgPicture.asset('assets/unheart_nav.svg', color: MyColors.hintColor,)),
+                  ],
+                ),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> NotificationPage()));
+                      },
+                      child: SvgPicture.asset('assets/notification_nav.svg', color: MyColors.hintColor,)),
+                    SizedBox(width: 41,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfilePage()));
+                      },
+                      child: SvgPicture.asset('assets/user_nav.svg', color: MyColors.hintColor,)),
+                  ],
+                ),
               ],
             ),
           ),

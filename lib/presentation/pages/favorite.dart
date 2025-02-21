@@ -1,6 +1,9 @@
 import 'package:a_matual/domain/functions/functions.dart';
 import 'package:a_matual/presentation/colors/color.dart';
 import 'package:a_matual/presentation/pages/details_page.dart';
+import 'package:a_matual/presentation/pages/home.dart';
+import 'package:a_matual/presentation/pages/notification_page.dart';
+import 'package:a_matual/presentation/pages/profile_page.dart';
 import 'package:a_matual/presentation/widget/my_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -35,7 +38,11 @@ class _FavoritePageState extends State<FavoritePage> {
         ),
         ],
         leading: Padding(padding: EdgeInsets.only(left: 20),
-          child: SvgPicture.asset('assets/back_icon.svg')
+          child: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: SvgPicture.asset('assets/back_icon.svg'))
         ),
         title: MyText(title: 'Избранное', size: 16, color: MyColors.textColor),
       ),
@@ -48,7 +55,7 @@ class _FavoritePageState extends State<FavoritePage> {
               onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage(id: '01934e25-ee0e-7c87-8271-0a7f5ddcf04c')));},
               child: Container(
                 width: 160,
-                height: 182,
+                height: 188,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   color: MyColors.blockColor,
@@ -163,16 +170,32 @@ class _FavoritePageState extends State<FavoritePage> {
               children: [
                 Row(
                   children: [
-                    SvgPicture.asset('assets/name_icon.svg', color: MyColors.hintColor,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+                      },
+                      child: SvgPicture.asset('assets/name_nav.svg', color: MyColors.hintColor,)),
                     SizedBox(width: 41,),
-                    SvgPicture.asset('assets/unheart_nav.svg', color: MyColors.accentColor,),
+                    GestureDetector(
+                      onTap: () {
+                        
+                      },
+                      child: SvgPicture.asset('assets/unheart_nav.svg', color: MyColors.accentColor,)),
                   ],
                 ),
                 Row(
                   children: [
-                    SvgPicture.asset('assets/notification_nav.svg', color: MyColors.hintColor,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> NotificationPage()));
+                      },
+                      child: SvgPicture.asset('assets/notification_nav.svg', color: MyColors.hintColor,)),
                     SizedBox(width: 41,),
-                    SvgPicture.asset('assets/user_nav.svg', color: MyColors.hintColor,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfilePage()));
+                      },
+                      child: SvgPicture.asset('assets/user_nav.svg', color: MyColors.hintColor,)),
                   ],
                 ),
               ],
